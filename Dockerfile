@@ -60,6 +60,4 @@ RUN python manage.py collectstatic --noinput --clear
 
 ENV DJANGO_SETTINGS_MODULE=mysite.settings.production
 
-CMD set -xe; \
-    python manage.py migrate --noinput; \
-    gunicorn mysite.wsgi:application --bind 0.0.0.0:$PORT
+CMD set -xe; python manage.py migrate --noinput; gunicorn mysite.wsgi:application --bind 0.0.0.0:$PORT
